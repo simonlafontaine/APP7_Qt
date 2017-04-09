@@ -19,11 +19,11 @@ Actions:
 	
 		-Automatique
 			En mode automatique, des données sont entrés dans les espaces appropriés afin de determiner les valeurs des 
-			senseurs que nous désirons obtenir. (Puisque les 2 mode sont dans la même fenêtre, les options du mode choisi 				seront disponibles, mais celles de l'autre seront vérouillés)
+			senseurs que nous désirons obtenir. (Puisque les 2 mode sont dans la même fenêtre, les options du mode choisi 				seront disponibles, mais celles de l'autre seront vérrouillés)
 		-Manuel
-			En mode manuel, on peut démarrer la lumière et la pompe durant un choix de périodes. (Puisque les 2 mode sont 				dans la même fenêtre, les options du mode choisi seront disponibles, mais celles de l'autre seront vérouillés)
+			En mode manuel, on peut démarrer la lumière et la pompe durant un choix de périodes. (Puisque les 2 mode sont 				dans la même fenêtre, les options du mode choisi seront disponibles, mais celles de l'autre seront vérrouillés)
 	
-	- Bouton "Arrêt d'urgence" visble en tout temps
+	- Bouton "Arrêt d'urgence" visible en tout temps
 		Arrête immédiatement la pompe et la lumière. (Mode manuel avec paramètre de lumière et pompe éteintes)
 	
 	- Menu Fichier-> Ouvrir:
@@ -60,7 +60,7 @@ Actions:
 		-Champ pour indiquer l'humidité désiré dans le substrat ou l'on peut aussi cliquer sur les flèches (haut/bas)pour 			 choisir.
 		-Champs pour indiquer la période de luminosité désirée ou double "slider" qui permet de la choisir avec la souris.
 		-Champs pour indiquer les températures minimale et maximale désirées ou double "slider" qui permet de les choisir avec 			 la souris.
-	-Barre de status:
+	-Barre de statut:
 		Confirme les actions effectués par l'utilisateur lors de la première itération mais servira plutôt à confirmer à 			l'utilisateur que l'action à bien été effectuée.
 		
 
