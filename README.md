@@ -4,6 +4,7 @@ Projet d'interface avec Qt
 Interface Controleur Garduino:
 
 Affiche toujours les données suivantes:
+
 	-Le taux d'humidité du substrat.
 	-Le taux de luminosité naturelle.
 	-Les heures de lumière naturelle reçue dans la journée.
@@ -13,9 +14,12 @@ Affiche toujours les données suivantes:
 	
 	
 Actions:
+
 	- Bouton de choix de mode de fonctionnement:
+	
 		-Automatique
-			En mode automatique, des données sont entrés dans les espaces appropriés afin de determiner les valeurs des 				senseurs que nous désirons obtenir. (Puisque les 2 mode sont dans la même fenêtre, les options du mode choisi 				seront disponibles, mais celles de l'autre seront vérouillés)
+			En mode automatique, des données sont entrés dans les espaces appropriés afin de determiner les valeurs des 
+			senseurs que nous désirons obtenir. (Puisque les 2 mode sont dans la même fenêtre, les options du mode choisi 				seront disponibles, mais celles de l'autre seront vérouillés)
 		-Manuel
 			En mode manuel, on peut démarrer la lumière et la pompe durant un choix de périodes. (Puisque les 2 mode sont 				dans la même fenêtre, les options du mode choisi seront disponibles, mais celles de l'autre seront vérouillés)
 	
