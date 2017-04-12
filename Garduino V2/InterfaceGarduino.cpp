@@ -16,7 +16,7 @@
 InterfaceGarduino::InterfaceGarduino()
 {
     //Fenêtre principale
-    setWindowTitle("Controleur Garduino Version Alpha");
+    setWindowTitle("Controleur Garduino Version Alpha");//cvhndfn
     resize(600, 400);
 
 
