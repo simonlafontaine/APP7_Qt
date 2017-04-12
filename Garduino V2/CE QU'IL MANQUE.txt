@@ -1,0 +1,11 @@
+-Un spacer pour les boutons
+-Le Menu fichier Aide etc
+-Que le layout GroupBox Etat desire/Etat actuel marche
+-Quelque options dans les états lus et les unités des boites d'écritures
+-Compilation séparé?
+-Comprendre qmake avec VB
+-Signal et slots
+-Barre de statut
+-Qboxgroup Manuel avec boutons de temps pour pompe et lumiere
+-Popup Quitter
+
