@@ -147,19 +147,102 @@ InterfaceGarduino::InterfaceGarduino(QWidget *parent)
     espaceBoutons->addWidget(bouton8);
     espaceBoutons->addWidget(bouton9);
 
-    //Barre de statut  //Ne fonctionne pas  ... Layout?
+
     QStatusBar *statut = new QStatusBar();
     setStatusBar(statut);
     espaceStatut->addWidget(statut);
 
-//    const QString *Qdemarrer = new QString("Demarrage de l'application");
-    QObject::connect(bouton8, SIGNAL(clicked()), this, SLOT(printLog()));
+    //message assigne a chaque clic pour chacun des differents boutons
+    btnMsg1 = new const QString("Automatique");
+    btnMsg2 = new const QString("Manuel");
+    btnMsg3 = new const QString("Arrêt d'urgence");
+    btnMsg4 = new const QString("Lumiere On");
+    btnMsg5 = new const QString("Lumiere Off");
+    btnMsg6 = new const QString("Pompe On");
+    btnMsg7 = new const QString("Pompe Off");
+    btnMsg8 = new const QString("Demarrage de l'application");
+    btnMsg9 = new const QString("Quitter");
+
+    //mapping du clic de bouton vers une slot qui appelle une autre slot a l'aide d'un signal intermediaire
+    QObject::connect(bouton1, SIGNAL(clicked()), this, SLOT(btn1Clicked()));
+    QObject::connect(this, SIGNAL(btn1MsgEmit(const QString &)), this, SLOT(btn1Print(const QString &)));
+    QObject::connect(bouton2, SIGNAL(clicked()), this, SLOT(btn2Clicked()));
+    QObject::connect(this, SIGNAL(btn2MsgEmit(const QString &)), this, SLOT(btn2Print(const QString &)));
+    QObject::connect(bouton3, SIGNAL(clicked()), this, SLOT(btn3Clicked()));
+    QObject::connect(this, SIGNAL(btn3MsgEmit(const QString &)), this, SLOT(btn3Print(const QString &)));
+    QObject::connect(bouton4, SIGNAL(clicked()), this, SLOT(btn4Clicked()));
+    QObject::connect(this, SIGNAL(btn4MsgEmit(const QString &)), this, SLOT(btn4Print(const QString &)));
+    QObject::connect(bouton5, SIGNAL(clicked()), this, SLOT(btn5Clicked()));
+    QObject::connect(this, SIGNAL(btn5MsgEmit(const QString &)), this, SLOT(btn5Print(const QString &)));
+    QObject::connect(bouton6, SIGNAL(clicked()), this, SLOT(btn6Clicked()));
+    QObject::connect(this, SIGNAL(btn6MsgEmit(const QString &)), this, SLOT(btn6Print(const QString &)));
+    QObject::connect(bouton7, SIGNAL(clicked()), this, SLOT(btn7Clicked()));
+    QObject::connect(this, SIGNAL(btn7MsgEmit(const QString &)), this, SLOT(btn7Print(const QString &)));
+    QObject::connect(bouton8, SIGNAL(clicked()), this, SLOT(btn8Clicked()));
+    QObject::connect(this, SIGNAL(btn8MsgEmit(const QString &)), this, SLOT(btn8Print(const QString &)));
+    QObject::connect(bouton9, SIGNAL(clicked()), this, SLOT(btn9Clicked()));
+    QObject::connect(this, SIGNAL(btn9MsgEmit(const QString &)), this, SLOT(btn9Print(const QString &)));
 }
 
-void InterfaceGarduino::printLog() {
-    // auto log = new QLabel(message);
-//    this->file->push(log);
-    // statusBar.addWidget(log);
-    //QStatusBar& statusBar, QString  &message
-    statusBar()->showMessage("helloWorld");
+void InterfaceGarduino::btn1Clicked() {
+    this->btn1MsgEmit(*btnMsg1);
+}
+void InterfaceGarduino::btn1Print(const QString &msg) {
+    statusBar()->showMessage(msg,0);
+}
+
+void InterfaceGarduino::btn2Clicked() {
+    this->btn2MsgEmit(*btnMsg2);
+}
+void InterfaceGarduino::btn2Print(const QString &msg) {
+    statusBar()->showMessage(msg,0);
+}
+
+void InterfaceGarduino::btn3Clicked() {
+    this->btn3MsgEmit(*btnMsg3);
+}
+void InterfaceGarduino::btn3Print(const QString &msg) {
+    statusBar()->showMessage(msg,0);
+}
+
+void InterfaceGarduino::btn4Clicked() {
+    this->btn4MsgEmit(*btnMsg4);
+}
+void InterfaceGarduino::btn4Print(const QString &msg) {
+    statusBar()->showMessage(msg,0);
+}
+
+void InterfaceGarduino::btn5Clicked() {
+    this->btn5MsgEmit(*btnMsg5);
+}
+void InterfaceGarduino::btn5Print(const QString &msg) {
+    statusBar()->showMessage(msg,0);
+}
+
+void InterfaceGarduino::btn6Clicked() {
+    this->btn6MsgEmit(*btnMsg6);
+}
+void InterfaceGarduino::btn6Print(const QString &msg) {
+    statusBar()->showMessage(msg,0);
+}
+
+void InterfaceGarduino::btn7Clicked() {
+    this->btn7MsgEmit(*btnMsg7);
+}
+void InterfaceGarduino::btn7Print(const QString &msg) {
+    statusBar()->showMessage(msg,0);
+}
+
+void InterfaceGarduino::btn8Clicked() {
+    this->btn8MsgEmit(*btnMsg8);
+}
+void InterfaceGarduino::btn8Print(const QString &msg) {
+    statusBar()->showMessage(msg,0);
+}
+
+void InterfaceGarduino::btn9Clicked() {
+    this->btn9MsgEmit(*btnMsg9);
+}
+void InterfaceGarduino::btn9Print(const QString &msg) {
+    statusBar()->showMessage(msg,0);
 }
