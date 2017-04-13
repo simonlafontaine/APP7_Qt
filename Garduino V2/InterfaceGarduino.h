@@ -1,6 +1,7 @@
 #ifndef INTERFACEGARDUINO_H
 #define INTERFACEGARDUINO_H
 
+#include <QMainWindow>
 #include <QWidget>
 #include <QLabel>
 #include <QVBoxLayout>
@@ -15,14 +16,22 @@
 #include <QSpinBox>
 #include <QSpacerItem>
 #include <QPushButton>
+#include <QStatusBar>
+#include <queue>
 
 
-class InterfaceGarduino : public QWidget
+class InterfaceGarduino : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    InterfaceGarduino();
+    InterfaceGarduino(QWidget *parent =0);
+
+public slots:
+    void printLog();
+//QStatusBar& statusBar, QString &message
+private:
+    //std::queue<QLabel> *file;
 
 };
 

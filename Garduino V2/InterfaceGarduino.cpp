@@ -1,29 +1,17 @@
 #include "InterfaceGarduino.h"
-#include <QBoxLayout>
-#include <QWidget>
-#include <QGroupBox>
-#include <QGridLayout>
-#include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QLabel>
-#include <QLineEdit>
-#include <QSlider>
-#include <QSpinBox>
-#include <QSpacerItem>
-#include <QPushButton>
-#include <QStatusBar>
 
-InterfaceGarduino::InterfaceGarduino()
+InterfaceGarduino::InterfaceGarduino(QWidget *parent)
+    :QMainWindow(parent)
 {
     //Fenêtre principale
     setWindowTitle("Controleur Garduino Version Alpha");//cvhndfn
     resize(600, 400);
 
 
-
     //Layout principal et vertical
-    auto principalLayout = new QVBoxLayout();
-    setLayout(principalLayout);
+    QWidget * mainWidget = new QWidget;
+    QVBoxLayout* principalLayout = new QVBoxLayout(mainWidget);
+    setCentralWidget(mainWidget);
 
 
     //Sous-Layouts
@@ -39,6 +27,9 @@ InterfaceGarduino::InterfaceGarduino()
 
     auto espaceBoutons  = new QHBoxLayout;
     principalLayout->addLayout(espaceBoutons);
+
+    auto espaceStatut = new QHBoxLayout;
+    principalLayout->addLayout(espaceStatut);
 
     //2 Groupbox
     auto etatsActuels = new QGroupBox();
@@ -134,6 +125,18 @@ InterfaceGarduino::InterfaceGarduino()
     espaceBoutons->addWidget(bouton9);
 
     //Barre de statut  //Ne fonctionne pas  ... Layout?
-    auto statut = new QStatusBar();
-    statut->showMessage("Prêt", 5);
+    QStatusBar *statut = new QStatusBar();
+    setStatusBar(statut);
+    espaceStatut->addWidget(statut);
+
+//    const QString *Qdemarrer = new QString("Demarrage de l'application");
+    QObject::connect(bouton8, SIGNAL(clicked()), this, SLOT(printLog()));
+}
+
+void InterfaceGarduino::printLog() {
+    // auto log = new QLabel(message);
+//    this->file->push(log);
+    // statusBar.addWidget(log);
+    //QStatusBar& statusBar, QString  &message
+    statusBar()->showMessage("helloWorld");
 }
