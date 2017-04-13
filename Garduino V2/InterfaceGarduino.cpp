@@ -22,6 +22,9 @@ InterfaceGarduino::InterfaceGarduino(QWidget *parent)
 
     auto milieu = new QHBoxLayout;
     principalLayout->addLayout(milieu);
+	
+	auto droit = new QVBoxLayout;
+	milieu->addLayout(droit);
 
     //principalLayout->addItem(new QSpacerItem(0,0,QSizePolicy::Minimum, QSizePolicy::Expanding));
 
@@ -37,15 +40,18 @@ InterfaceGarduino::InterfaceGarduino(QWidget *parent)
 
     auto etatsDesires = new QGroupBox();
     etatsActuels->setTitle("États désirés");
+	
+	auto manuel = new QGroupBox();
+	manuel->setTitle("Mode manuel");
 
     //Boutons
     auto bouton1 = new QPushButton("Automatique");
     auto bouton2 = new QPushButton("Manuel");
     auto bouton3 = new QPushButton("Arrêt d'urgence");
-    auto bouton4 = new QPushButton("On");
-    auto bouton5 = new QPushButton("Off");
-    auto bouton6 = new QPushButton("On");
-    auto bouton7 = new QPushButton("Off");
+    auto pompeOn = new QPushButton("On");
+    auto pompeOff = new QPushButton("Off");
+    auto lampeOn = new QPushButton("On");
+    auto lampeOff = new QPushButton("Off");
     auto bouton8 = new QPushButton("Démarrer");
     auto bouton9 = new QPushButton("Quitter");
 
@@ -60,6 +66,8 @@ InterfaceGarduino::InterfaceGarduino(QWidget *parent)
     auto label8 = new QLabel(" Température", etatsDesires);
     auto label9 = new QLabel(" Humidité", etatsDesires);
     auto label10 = new QLabel(" Heures de lumière", etatsDesires);
+	auto pompeLabel = new QLabel("Pompe", manuel);
+	auto lampeLabel = new QLabel("Lampe", manuel);
 
 
     //Lignes de texte
@@ -114,10 +122,21 @@ InterfaceGarduino::InterfaceGarduino(QWidget *parent)
     etatsDesiresLayout ->addWidget(text10,4,1);
 
     etatsDesires->setLayout(etatsDesiresLayout);
-    milieu->addWidget(etatsDesires);
+    droit->addWidget(etatsDesires);
 
     //Layout de Mode Manuel
-
+	
+	auto manuelLayout = new QGridLayout();
+	
+	manuelLayout -> addWidget(pompeLabel,0 , 0);
+	manuelLayout -> addWidget(pompeOn,   0 , 1);
+	manuelLayout -> addWidget(pompeOff,  0 , 2);
+	manuelLayout -> addWidget(lampeLabel,1 , 0);
+	manuelLayout -> addWidget(lampeOn,   1 , 1);
+	manuelLayout -> addWidget(lampeOff,  1 , 2);
+	
+	manuel->setLayout(manuelLayout);
+    droit->addWidget(manuel);
 
     //Layout Bouton en bas
     espaceBoutons->addWidget(bouton3);
