@@ -1,9 +1,7 @@
 #ifndef INTERFACEGARDUINO_H
 #define INTERFACEGARDUINO_H
 
-#include <QMainWindow>
-#include <QWidget>
-#include <QLabel>
+
 #include <QVBoxLayout>
 #include <QWidget>
 #include <QGroupBox>
@@ -18,7 +16,7 @@
 #include <QPushButton>
 #include <QStatusBar>
 #include <queue>
-
+#include <QMainWindow>
 
 class InterfaceGarduino : public QMainWindow
 {

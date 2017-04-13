@@ -4,7 +4,7 @@ InterfaceGarduino::InterfaceGarduino(QWidget *parent)
     :QMainWindow(parent)
 {
     //Fenêtre principale
-    setWindowTitle("Controleur Garduino Version Alpha");//cvhndfn
+    setWindowTitle("Controleur Garduino Version Alpha");
     resize(600, 400);
 
 
@@ -18,15 +18,17 @@ InterfaceGarduino::InterfaceGarduino(QWidget *parent)
     auto espaceModes  = new QHBoxLayout;
     principalLayout->addLayout(espaceModes);
 
-    //principalLayout->addItem(new QSpacerItem(0,6,QSizePolicy::Minimum, QSizePolicy::Minimum));//Marche pas full comme prévu
+
 
     auto milieu = new QHBoxLayout;
     principalLayout->addLayout(milieu);
 	
 	auto droit = new QVBoxLayout;
-	milieu->addLayout(droit);
+	
 
-    //principalLayout->addItem(new QSpacerItem(0,0,QSizePolicy::Minimum, QSizePolicy::Expanding));
+
+
+    principalLayout->addItem(new QSpacerItem(0,0,QSizePolicy::Minimum, QSizePolicy::Expanding));
 
     auto espaceBoutons  = new QHBoxLayout;
     principalLayout->addLayout(espaceBoutons);
@@ -39,8 +41,8 @@ InterfaceGarduino::InterfaceGarduino(QWidget *parent)
     etatsActuels->setTitle("États actuels");
 
     auto etatsDesires = new QGroupBox();
-    etatsActuels->setTitle("États désirés");
-	
+    //etatsActuels->setTitle("États désirés");
+	/*Titre état actuel commenté puisqu'il ne va pas au bon endroit...*/
 	auto manuel = new QGroupBox();
 	manuel->setTitle("Mode manuel");
 
@@ -56,16 +58,16 @@ InterfaceGarduino::InterfaceGarduino(QWidget *parent)
     auto bouton9 = new QPushButton("Quitter");
 
     //Labels
-    auto label2 = new QLabel(" Température",etatsActuels);
-    auto label3 = new QLabel(" Humidité",etatsActuels);
-    auto label4 = new QLabel(" Luminosité naturelle",etatsActuels);
-    auto label5 = new QLabel(" Luminosité",etatsActuels);
+    auto label2 = new QLabel(" Température (°C)",etatsActuels);
+    auto label3 = new QLabel(" Humidité (%)",etatsActuels);
+    auto label4 = new QLabel(" Luminosité naturelle (%)",etatsActuels);
+    auto label5 = new QLabel(" Luminosité totale (%)",etatsActuels);
     auto label6 = new QLabel(" Lumière",etatsActuels);
     auto label7 = new QLabel(" Pompe",etatsActuels);
 
-    auto label8 = new QLabel(" Température", etatsDesires);
-    auto label9 = new QLabel(" Humidité", etatsDesires);
-    auto label10 = new QLabel(" Heures de lumière", etatsDesires);
+	auto label8 = new QLabel("Température désirée (°C)", etatsDesires);
+    auto label9 = new QLabel("Humidité désirée (%)", etatsDesires);
+    auto label10 = new QLabel("Nombre d'heures de lumière désiré", etatsDesires);
 	auto pompeLabel = new QLabel("Pompe", manuel);
 	auto lampeLabel = new QLabel("Lampe", manuel);
 
@@ -89,6 +91,34 @@ InterfaceGarduino::InterfaceGarduino(QWidget *parent)
     espaceModes->addWidget(bouton2);
 
 
+	//Layout de États désirés
+	auto etatsDesiresLayout = new QGridLayout();
+
+	etatsDesiresLayout->addWidget(label8, 2, 0);
+	etatsDesiresLayout->addWidget(label9, 3, 0);
+	etatsDesiresLayout->addWidget(label10, 4, 0);
+
+	etatsDesiresLayout->addWidget(text8, 2, 1);
+	etatsDesiresLayout->addWidget(text9, 3, 1);
+	etatsDesiresLayout->addWidget(text10, 4, 1);
+
+	etatsDesires->setLayout(etatsDesiresLayout);
+	droit->addWidget(etatsDesires);
+
+	//Layout de Mode Manuel
+
+	auto manuelLayout = new QGridLayout();
+
+	manuelLayout->addWidget(pompeLabel, 0, 0);
+	manuelLayout->addWidget(pompeOn, 0, 1);
+	manuelLayout->addWidget(pompeOff, 0, 2);
+	manuelLayout->addWidget(lampeLabel, 1, 0);
+	manuelLayout->addWidget(lampeOn, 1, 1);
+	manuelLayout->addWidget(lampeOff, 1, 2);
+
+	manuel->setLayout(manuelLayout);
+	droit->addWidget(manuel);
+
     //Layout de États Actuels
     auto etatsActuelsLayout = new QGridLayout();
 
@@ -108,35 +138,9 @@ InterfaceGarduino::InterfaceGarduino(QWidget *parent)
 
     etatsActuels->setLayout(etatsActuelsLayout);
     milieu->addWidget(etatsActuels);
+	milieu->addLayout(droit);
 
-
-    //Layout de États désirés
-    auto etatsDesiresLayout = new QGridLayout();
-
-    etatsDesiresLayout ->addWidget(label8,2,0);
-    etatsDesiresLayout ->addWidget(label9,3,0);
-    etatsDesiresLayout ->addWidget(label10,4,0);
-
-    etatsDesiresLayout ->addWidget(text8,2,1);
-    etatsDesiresLayout ->addWidget(text9,3,1);
-    etatsDesiresLayout ->addWidget(text10,4,1);
-
-    etatsDesires->setLayout(etatsDesiresLayout);
-    droit->addWidget(etatsDesires);
-
-    //Layout de Mode Manuel
-	
-	auto manuelLayout = new QGridLayout();
-	
-	manuelLayout -> addWidget(pompeLabel,0 , 0);
-	manuelLayout -> addWidget(pompeOn,   0 , 1);
-	manuelLayout -> addWidget(pompeOff,  0 , 2);
-	manuelLayout -> addWidget(lampeLabel,1 , 0);
-	manuelLayout -> addWidget(lampeOn,   1 , 1);
-	manuelLayout -> addWidget(lampeOff,  1 , 2);
-	
-	manuel->setLayout(manuelLayout);
-    droit->addWidget(manuel);
+    
 
     //Layout Bouton en bas
     espaceBoutons->addWidget(bouton3);
