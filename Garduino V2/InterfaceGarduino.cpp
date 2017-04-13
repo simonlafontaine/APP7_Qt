@@ -4,7 +4,7 @@ InterfaceGarduino::InterfaceGarduino(QWidget *parent)
     :QMainWindow(parent)
 {
     //Fenêtre principale
-    setWindowTitle("Controleur Garduino Version Alpha");
+    setWindowTitle("Controleur Garduino");
     resize(600, 400);
 
 
@@ -151,15 +151,15 @@ InterfaceGarduino::InterfaceGarduino(QWidget *parent)
     QStatusBar *statut = new QStatusBar();
     setStatusBar(statut);
     espaceStatut->addWidget(statut);
-
+    statusBar()->showMessage("", 0);
     //message assigne a chaque clic pour chacun des differents boutons
     btnMsg1 = new const QString("Automatique");
     btnMsg2 = new const QString("Manuel");
     btnMsg3 = new const QString("Arrêt d'urgence");
-    btnMsg4 = new const QString("Lumiere On");
-    btnMsg5 = new const QString("Lumiere Off");
-    btnMsg6 = new const QString("Pompe On");
-    btnMsg7 = new const QString("Pompe Off");
+    btnMsg4 = new const QString("Pompe On");
+    btnMsg5 = new const QString("Pompe Off");
+    btnMsg6 = new const QString("Lumiere On");
+    btnMsg7 = new const QString("Lumiere Off");
     btnMsg8 = new const QString("Demarrage de l'application");
     btnMsg9 = new const QString("Quitter");
 
@@ -170,13 +170,13 @@ InterfaceGarduino::InterfaceGarduino(QWidget *parent)
     QObject::connect(this, SIGNAL(btn2MsgEmit(const QString &)), this, SLOT(btn2Print(const QString &)));
     QObject::connect(bouton3, SIGNAL(clicked()), this, SLOT(btn3Clicked()));
     QObject::connect(this, SIGNAL(btn3MsgEmit(const QString &)), this, SLOT(btn3Print(const QString &)));
-    QObject::connect(bouton4, SIGNAL(clicked()), this, SLOT(btn4Clicked()));
+    QObject::connect(pompeOn, SIGNAL(clicked()), this, SLOT(btn4Clicked()));
     QObject::connect(this, SIGNAL(btn4MsgEmit(const QString &)), this, SLOT(btn4Print(const QString &)));
-    QObject::connect(bouton5, SIGNAL(clicked()), this, SLOT(btn5Clicked()));
+    QObject::connect(pompeOff, SIGNAL(clicked()), this, SLOT(btn5Clicked()));
     QObject::connect(this, SIGNAL(btn5MsgEmit(const QString &)), this, SLOT(btn5Print(const QString &)));
-    QObject::connect(bouton6, SIGNAL(clicked()), this, SLOT(btn6Clicked()));
+    QObject::connect(lampeOn, SIGNAL(clicked()), this, SLOT(btn6Clicked()));
     QObject::connect(this, SIGNAL(btn6MsgEmit(const QString &)), this, SLOT(btn6Print(const QString &)));
-    QObject::connect(bouton7, SIGNAL(clicked()), this, SLOT(btn7Clicked()));
+    QObject::connect(lampeOff, SIGNAL(clicked()), this, SLOT(btn7Clicked()));
     QObject::connect(this, SIGNAL(btn7MsgEmit(const QString &)), this, SLOT(btn7Print(const QString &)));
     QObject::connect(bouton8, SIGNAL(clicked()), this, SLOT(btn8Clicked()));
     QObject::connect(this, SIGNAL(btn8MsgEmit(const QString &)), this, SLOT(btn8Print(const QString &)));
