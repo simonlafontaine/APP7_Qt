@@ -47,6 +47,8 @@ public slots:
     void btn9Clicked();
     void btn9Print(const QString &);
 
+
+
 signals:
     void btn1MsgEmit(const QString &);
     void btn2MsgEmit(const QString &);
@@ -60,6 +62,19 @@ signals:
 
 private:
     const QString *btnMsg1, *btnMsg2, *btnMsg3, *btnMsg4, *btnMsg5, *btnMsg6, *btnMsg7, *btnMsg8, *btnMsg9;
+
+
+
+    void createMenu();
+    QMenuBar *menuBar;
+    QMenu *fileMenu;
+    QMenu *helpMenu;
+    QAction *openAction;
+    QAction *saveAction;
+    QAction *stopAction;
+    QAction *startAction;
+    QAction *closeAction;
+    QAction *guideAction;
 };
 
 #endif // INTERFACEGARDUINO_H

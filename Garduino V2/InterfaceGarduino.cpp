@@ -1,12 +1,12 @@
 #include "InterfaceGarduino.h"
-
+#include <QtWidgets>
 InterfaceGarduino::InterfaceGarduino(QWidget *parent)
     :QMainWindow(parent)
 {
     //Fenêtre principale
     setWindowTitle("Controleur Garduino");
     resize(600, 400);
-
+    createMenu();
 
     //Layout principal et vertical
     QWidget * mainWidget = new QWidget;
@@ -15,6 +15,7 @@ InterfaceGarduino::InterfaceGarduino(QWidget *parent)
 
 
     //Sous-Layouts
+    principalLayout->setMenuBar(menuBar);
     auto espaceModes  = new QHBoxLayout;
     principalLayout->addLayout(espaceModes);
 
@@ -147,6 +148,8 @@ InterfaceGarduino::InterfaceGarduino(QWidget *parent)
     espaceBoutons->addWidget(bouton8);
     espaceBoutons->addWidget(bouton9);
 
+//---------------Vincent ci-bas
+
 
     QStatusBar *statut = new QStatusBar();
     setStatusBar(statut);
@@ -245,4 +248,33 @@ void InterfaceGarduino::btn9Clicked() {
 }
 void InterfaceGarduino::btn9Print(const QString &msg) {
     statusBar()->showMessage(msg,0);
+}
+
+
+
+//Simon ci-bas
+//Menu
+void InterfaceGarduino::createMenu()
+{
+    menuBar = new QMenuBar;
+
+    fileMenu = new QMenu("Fichier", this);
+    helpMenu = new QMenu("Aide", this);
+    openAction = fileMenu->addAction("Ouvrir une configuration existente");
+    saveAction = fileMenu->addAction("Sauvegarder la configuration actuelle");
+    startAction = fileMenu->addAction("Démarrer");
+    stopAction = fileMenu->addAction("Arrêter");
+    closeAction = fileMenu->addAction("Quitter");
+    guideAction = helpMenu->addAction("Guide d'utilisation");
+
+    menuBar->addMenu(fileMenu);
+    menuBar->addMenu(helpMenu);
+
+
+    connect(openAction, SIGNAL(triggered()), this, SLOT(accept()));
+    connect(saveAction, SIGNAL(triggered()), this, SLOT(accept()));
+    connect(startAction, SIGNAL(triggered()), this, SLOT(accept()));
+    connect(stopAction, SIGNAL(triggered()), this, SLOT(accept()));
+    connect(closeAction, SIGNAL(triggered()), this, SLOT(accept()));
+    connect(guideAction, SIGNAL(triggered()), this, SLOT(accept()));
 }
